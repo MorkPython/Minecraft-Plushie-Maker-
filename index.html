@@ -27,14 +27,13 @@
 
         nav ul, .options ul {
             list-style: none;
-            display: flex;
             padding: 0;
-            justify-content: center;
             margin: 20px 0;
+            text-align: center;
         }
 
         nav ul li, .options ul li {
-            margin: 0 10px;
+            margin: 10px 0;
         }
 
         nav ul li a, .options ul li a, button {
@@ -58,17 +57,17 @@
         .options ul li a:hover::before {
             content: '⚙️';
             display: inline-block;
-            margin-left: 5px;
+            margin-right: 5px;
             animation: spin 1s linear infinite;
+        }
+
+        .quit {
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .quit:hover {
             background-color: #ff4c4c;
             color: #fff;
-        }
-
-        .quit {
-            transition: background-color 0.3s, color 0.3s;
         }
 
         main {
@@ -112,6 +111,7 @@
     </header>
     <nav>
         <ul>
+            <li><a href="#" onclick="showPage('main')">Main Menu</a></li>
             <li><a href="#" onclick="showPage('create')">Create</a></li>
             <li><a href="#" onclick="showPage('about')">About</a></li>
             <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
@@ -124,7 +124,12 @@
         </ul>
     </div>
     <main>
-        <section id="create" class="page active">
+        <section id="main" class="page active">
+            <h2>Welcome to Minecraft Plushie Maker</h2>
+            <p>Press Start to begin creating your plushie.</p>
+            <button onclick="showPage('create')">Start</button>
+        </section>
+        <section id="create" class="page">
             <h2>Create</h2>
             <h1>Turn any Minecraft skin into a plushie version!</h1>
             <div class="Subtitles">
@@ -176,4 +181,3 @@
     </script>
 </body>
 </html>
-
