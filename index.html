@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MC-Plush</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'Monocraft';
+            src: url('Monocraft.ttf') format('truetype');
+        }
+    </style>
 </head>
 <body>
-   <div class="Titles">
-    <title>MC-Plush</title>
-   </div>
-    <div class="Subtitles">
-        <h1>Turn any minecraft skin into a plushie version!</h1>
+    <div class="main-menu">
+        <h1>Minecraft Plushie Maker</h1>
+        <nav>
+            <ul>
+                <li><a href="#create">Create</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="Main">
-        <body>
-            Follow these 9 steps to make your skin of choice into a plushie just like the image below
-        </body>
-        <h3>Step $step out of 9</h3>
-    </div> 
+    <main>
+        <section id="create" class="Titles">
+            <h2>Create</h2>
+            <h1>Turn any Minecraft skin into a plushie version!</h1>
+            <div class="Subtitles">
+                <h1>Turn any Minecraft skin into a plushie version!</h1>
+            </div>
+            <div class="Main">
+                <p>Follow these 9 steps to make your skin of choice into a plushie just like the image below</p>
+                <h3>Step $step out of 9</h3>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>Welcome to the Minecraft Plushie Maker! Create your own custom Minecraft plushies.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you have any questions, feel free to <a href="mailto:support@minecraftplushiemaker.com">contact us</a>.</p>
+        </section>
+    </main>
 </body>
 </html>
