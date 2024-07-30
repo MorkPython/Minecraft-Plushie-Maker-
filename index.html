@@ -10,6 +10,55 @@
             font-family: 'Monocraft';
             src: url('Monocraft.ttf') format('truetype');
         }
+
+        body {
+            font-family: 'Monocraft', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1, header h2 {
+            margin: 0;
+        }
+
+        nav ul, .options ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        nav ul li, .options ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .Titles, .Subtitles {
+            text-align: center;
+        }
+
+        .Main {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .Main h3 {
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +91,7 @@
             <div class="Main">
                 <p>Follow these 9 steps to make your skin of choice into a plushie just like the image below</p>
                 <h3>Step $step out of 9</h3>
+                <button>Next Step</button> <!-- Added button example -->
             </div>
         </section>
         <section id="about">
