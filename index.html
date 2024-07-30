@@ -18,6 +18,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #f0f0f0;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .header {
@@ -109,6 +110,52 @@
             gap: 10px;
             margin-top: 20px;
         }
+
+        .options-gui {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 20px;
+            z-index: 1000;
+            text-align: left;
+            width: 300px;
+        }
+
+        .options-gui.active {
+            display: block;
+        }
+
+        .options-gui .close-btn {
+            display: block;
+            text-align: right;
+        }
+
+        .options-gui .close-btn button {
+            background: none;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .slider-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .slider {
+            width: 70%;
+        }
     </style>
 </head>
 <body>
@@ -161,6 +208,23 @@
         </section>
     </main>
 
+    <div id="options-gui" class="options-gui">
+        <div class="close-btn">
+            <button onclick="hideOptions()">X</button>
+        </div>
+        <h2>Options</h2>
+        <div>
+            <label>
+                <input type="checkbox" id="dark-mode-toggle" onclick="toggleDarkMode()"> Dark Mode
+            </label>
+        </div>
+        <div class="slider-container">
+            <label for="brightness-slider">Brightness:</label>
+            <input type="range" id="brightness-slider" class="slider" min="0.5" max="1.5" step="0.1" value="1" oninput="adjustBrightness(this.value)">
+        </div>
+        <!-- Add more options as needed -->
+    </div>
+
     <script>
         let currentStep = 1;
 
@@ -191,7 +255,19 @@
         }
 
         function showOptions() {
-            alert("Options are not implemented yet!");
+            document.getElementById('options-gui').classList.add('active');
+        }
+
+        function hideOptions() {
+            document.getElementById('options-gui').classList.remove('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function adjustBrightness(value) {
+            document.body.style.filter = `brightness(${value})`;
         }
 
         function quitGame() {
