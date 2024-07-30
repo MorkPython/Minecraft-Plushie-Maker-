@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Monocraft', Arial, sans-serif;
     background-color: #f3f3f3;
     margin: 0;
     padding: 0;
@@ -10,6 +10,10 @@ header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+}
+
+header h1 {
+    font-family: Arial, sans-serif; /* Use the default font for the title */
 }
 
 nav ul {
@@ -33,6 +37,10 @@ main {
 
 section {
     margin-bottom: 20px;
+}
+
+section h2 {
+    font-family: Arial, sans-serif; /* Use the default font for subtitles */
 }
 
 footer {
