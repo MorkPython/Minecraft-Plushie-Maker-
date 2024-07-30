@@ -102,6 +102,13 @@
         .page.active {
             display: block;
         }
+
+        .step-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -138,7 +145,10 @@
             <div class="Main">
                 <p>Follow these 9 steps to make your skin of choice into a plushie just like the image below</p>
                 <h3>Step <span id="step">1</span> out of 9</h3>
-                <button onclick="nextStep()">Next Step</button>
+                <div class="step-buttons">
+                    <button onclick="prevStep()">Previous Step</button>
+                    <button onclick="nextStep()">Next Step</button>
+                </div>
             </div>
         </section>
         <section id="about" class="page">
@@ -168,6 +178,15 @@
                 document.getElementById('step').innerText = currentStep;
             } else {
                 alert("You have completed all the steps!");
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                document.getElementById('step').innerText = currentStep;
+            } else {
+                alert("This is the first step.");
             }
         }
 
