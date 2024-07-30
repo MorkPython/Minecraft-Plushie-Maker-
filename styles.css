@@ -1,53 +1,85 @@
 body {
     font-family: 'Monocraft', Arial, sans-serif;
-    background-color: #f3f3f3;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    justify-content: center;
 }
 
-.main-menu {
+.container {
     text-align: center;
-    background-color: #333;
+}
+
+header h1 {
+    font-family: 'Monocraft', Arial, sans-serif;
+    font-size: 3em;
+    margin: 0;
+}
+
+header h2 {
+    font-family: 'Monocraft', Arial, sans-serif;
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: yellow;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 2em;
     color: #fff;
-    padding: 20px;
+    background: #444;
+    padding: 10px 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
-    width: 80%;
+    display: inline-block;
+    transition: background 0.3s;
 }
 
-.main-menu h1 {
-    font-family: Arial, sans-serif; /* Use the default font for the title */
-    margin-bottom: 20px;
+nav ul li a:hover {
+    background: #555;
 }
 
-.main-menu nav ul {
+.options {
+    margin-top: 20px;
+}
+
+.options ul {
     list-style: none;
     padding: 0;
 }
 
-.main-menu nav ul li {
-    margin: 20px 0;
+.options ul li {
+    margin: 10px 0;
 }
 
-.main-menu nav ul li a {
-    color: #fff;
+.options ul li a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 1.5em;
+    color: #fff;
+    background: #444;
+    padding: 10px 20px;
+    border-radius: 10px;
     display: inline-block;
-    width: 100%;
-    padding: 10px;
-    background-color: #444;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
 }
 
-.main-menu nav ul li a:hover {
-    background-color: #555;
+.options ul li a:hover {
+    background: #555;
 }
 
 main {
@@ -61,7 +93,7 @@ section {
 }
 
 section h2 {
-    font-family: Arial, sans-serif; /* Use the default font for subtitles */
+    font-family: 'Monocraft', Arial, sans-serif;
 }
 
 .Titles, .Subtitles, .Main {
