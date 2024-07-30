@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MC-Plush</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
             font-family: 'Monocraft';
@@ -18,25 +17,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #f0f0f0;
         }
 
-        .buttons {
+        .header {
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        header h1, header h2 {
-            margin: 0;
+            padding: 20px;
         }
 
         nav ul, .options ul {
             list-style: none;
+            display: flex;
             padding: 0;
-            margin: 10px 0;
+            justify-content: center;
+            margin: 20px 0;
         }
 
         nav ul li, .options ul li {
-            display: inline;
             margin: 0 10px;
         }
 
@@ -44,16 +41,34 @@
             text-decoration: none;
             color: #000;
             padding: 10px 20px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
+            background-color: #ddd;
+            border: 1px solid #aaa;
             border-radius: 5px;
-            transition: transform 0.3s, background-color 0.3s;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
             display: inline-block;
+            text-align: center;
+            cursor: pointer;
         }
 
         nav ul li a:hover, .options ul li a:hover, button:hover {
             transform: scale(1.1);
-            background-color: #e0e0e0;
+            background-color: #ccc;
+        }
+
+        .options ul li a:hover::before {
+            content: '⚙️';
+            display: inline-block;
+            margin-left: 5px;
+            animation: spin 1s linear infinite;
+        }
+
+        .quit:hover {
+            background-color: #ff4c4c;
+            color: #fff;
+        }
+
+        .quit {
+            transition: background-color 0.3s, color 0.3s;
         }
 
         main {
@@ -61,6 +76,7 @@
             max-width: 800px;
             padding: 20px;
             box-sizing: border-box;
+            text-align: center;
         }
 
         .Titles, .Subtitles {
@@ -68,37 +84,47 @@
         }
 
         .Main {
-            text-align: center;
             margin: 20px 0;
         }
 
         .Main h3 {
             font-size: 1.2em;
         }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div class="buttons">
-        <header>
-            <h1>MINECRAFT PLUSHIE MAKER</h1>
-            <h2>Also try Limbo!</h2>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="#create">Create</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="options">
-            <ul>
-                <li><a href="#" onclick="showOptions()">Options...</a></li>
-                <li><a href="#" onclick="quitGame()">Quit Game</a></li>
-            </ul>
-        </div>
+    <header class="header">
+        <h1>MINECRAFT PLUSHIE MAKER</h1>
+        <h2>Also try Limbo!</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('create')">Create</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="options">
+        <ul>
+            <li><a href="#" onclick="showOptions()">Options...</a></li>
+            <li><a href="#" class="quit" onclick="quitGame()">Quit Game</a></li>
+        </ul>
     </div>
     <main>
-        <section id="create" class="Titles">
+        <section id="create" class="page active">
             <h2>Create</h2>
             <h1>Turn any Minecraft skin into a plushie version!</h1>
             <div class="Subtitles">
@@ -110,11 +136,11 @@
                 <button onclick="nextStep()">Next Step</button>
             </div>
         </section>
-        <section id="about">
+        <section id="about" class="page">
             <h2>About</h2>
             <p>Welcome to the Minecraft Plushie Maker! Create your own custom Minecraft plushies.</p>
         </section>
-        <section id="contact">
+        <section id="contact" class="page">
             <h2>Contact</h2>
             <p>If you have any questions, feel free to <a href="mailto:support@minecraftplushiemaker.com">contact us</a>.</p>
         </section>
@@ -122,6 +148,15 @@
 
     <script>
         let currentStep = 1;
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
         function nextStep() {
             if (currentStep < 9) {
                 currentStep++;
@@ -141,3 +176,4 @@
     </script>
 </body>
 </html>
+
