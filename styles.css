@@ -12,8 +12,13 @@ body {
     justify-content: center;
 }
 
-.container {
+.buttons {
     text-align: center;
+    a:hover {
+    background: #555;
+        width: 120%
+        height: 120%
+}
 }
 
 header h1 {
