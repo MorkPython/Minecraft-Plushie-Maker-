@@ -1,61 +1,75 @@
-// Global variables to track the secret code sequence
-const secretCode = "ugugula";
-const secretCodeReverse = "einsteinpig";
-let inputSequence = "";
-let easterEggActivated = false;
-
-// Function to handle secret code input
-function handleInput(event) {
-    inputSequence += event.key.toLowerCase();
-
-    if (inputSequence.includes(secretCode)) {
-        activateEasterEgg();
-        inputSequence = ""; // Reset input sequence
-    } else if (inputSequence.includes(secretCodeReverse)) {
-        deactivateEasterEgg();
-        inputSequence = ""; // Reset input sequence
-    }
-}
-
-// Function to activate the easter egg
-function activateEasterEgg() {
-    document.querySelector(".menu-container").classList.add("red-bg");
-    const secretMessage = document.createElement("div");
-    secretMessage.className = "secret-message";
-    secretMessage.textContent = "Welcome to the underworld. have fun here bro :P";
+document.addEventListener('DOMContentLoaded', function () {
+    let step = 1;
+    const maxSteps = 9;
+    const stepElement = document.getElementById('step');
+    const nextButton = document.getElementById('next-step');
+    const prevButton = document.getElementById('prev-step');
+    const optionsGui = document.querySelector('.options-gui');
+    const secretMessage = document.createElement('div');
+    secretMessage.classList.add('secret-message');
     document.body.appendChild(secretMessage);
-    easterEggActivated = true;
-}
 
-// Function to deactivate the easter egg
-function deactivateEasterEgg() {
-    document.querySelector(".menu-container").classList.remove("red-bg");
-    const secretMessage = document.querySelector(".secret-message");
-    if (secretMessage) {
-        document.body.removeChild(secretMessage);
+    function updateStep() {
+        stepElement.innerText = `Step ${step} out of ${maxSteps}`;
     }
-    easterEggActivated = false;
-}
 
-// Event listener for keyboard input
-document.addEventListener("keydown", handleInput);
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            if (step < maxSteps) {
+                step++;
+                updateStep();
+            }
+        });
+    }
 
-// Function to navigate to a new page
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            if (step > 1) {
+                step--;
+                updateStep();
+            }
+        });
+    }
+
+    document.getElementById('open-options').addEventListener('click', () => {
+        optionsGui.classList.add('active');
+    });
+
+    document.getElementById('close-options').addEventListener('click', () => {
+        optionsGui.classList.remove('active');
+    });
+
+    document.getElementById('dark-mode-toggle').addEventListener('change', (event) => {
+        if (event.target.checked) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    });
+
+    // Easter egg functionality
+    let secretCode = '';
+    const secretPhrase = 'ugugula';
+    const resetPhrase = 'einsteinpig';
+
+    document.addEventListener('keydown', (event) => {
+        secretCode += event.key.toLowerCase();
+
+        if (secretCode.endsWith(secretPhrase)) {
+            document.body.classList.add('red-bg');
+            secretMessage.innerText = 'Welcome to the underworld. Have fun here bro :P';
+            secretMessage.style.display = 'block';
+        }
+
+        if (secretCode.endsWith(resetPhrase)) {
+            document.body.classList.remove('red-bg');
+            secretMessage.style.display = 'none';
+        }
+    });
+
+    updateStep();
+});
+
 function navigate(page) {
     window.location.href = page;
-}
-
-// Function to show the options GUI
-function showOptions() {
-    document.querySelector(".options-gui").classList.add("active");
-}
-
-// Function to hide the options GUI
-function hideOptions() {
-    document.querySelector(".options-gui").classList.remove("active");
-}
-
-// Function to quit the game (redirects to a rickroll)
-function quitGame() {
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 }
