@@ -17,7 +17,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     position: relative;
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -29,19 +29,20 @@ body {
 }
 
 .main-title {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
 .main-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 .menu-button {
-    display: block;
     width: 100%;
-    max-width: 200px;
-    margin: 10px auto;
+    max-width: 300px;
     padding: 15px;
     font-size: 1.5em;
     background-color: #555;
@@ -57,15 +58,13 @@ body {
 }
 
 .footer-buttons {
-    margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 10px;
 }
 
 .footer-button {
-    width: 100%;
-    max-width: 200px;
+    width: 48%;
     padding: 15px;
     font-size: 1.2em;
     background-color: #444;
@@ -96,6 +95,7 @@ body {
     z-index: 1000;
     text-align: left;
     width: 300px;
+    max-width: 90%;
 }
 
 .options-gui.active {
@@ -143,7 +143,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
-        font-size: 2.5em;
+        font-size: 2em;
     }
 
     .menu-button, .footer-button {
@@ -163,7 +163,7 @@ body {
 
 @media (max-width: 480px) {
     .main-title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .menu-button, .footer-button {
