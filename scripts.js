@@ -68,21 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     updateStep();
-  // Function to navigate between pages
-function navigate(page) {
-    window.location.href = page;
-}
 
-// Function to show a Rickroll video before leaving the page
-function quitGame() {
-    // Redirect immediately
-    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-}
+    // Function to navigate between pages
+    window.navigate = function(page) {
+        window.location.href = page;
+    }
 
-// Add event listener to trigger quitGame on page unload
-window.addEventListener('beforeunload', function(event) {
-    // Show a confirmation dialog (this is required by some browsers)
-    event.returnValue = '';
-    // Open Rickroll video in a new tab (attempt to trigger quitGame)
-    quitGame();
+    // Function to show a Rickroll video before leaving the page
+    function quitGame() {
+        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    }
+
+    // Add event listener to trigger quitGame on page unload
+    window.addEventListener('beforeunload', function(event) {
+        // Show a confirmation dialog (this is required by some browsers)
+        event.returnValue = '';
+        // Open Rickroll video in a new tab (attempt to trigger quitGame)
+        quitGame();
+    });
 });
+
