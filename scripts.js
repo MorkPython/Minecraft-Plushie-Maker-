@@ -75,31 +75,14 @@ function navigate(page) {
 
 // Function to show a Rickroll video before leaving the page
 function quitGame() {
-    // Open Rickroll video in a new tab
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-    // Optionally, you can navigate to a different page or show a confirmation dialog
+    // Redirect immediately
+    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 }
 
 // Add event listener to trigger quitGame on page unload
 window.addEventListener('beforeunload', function(event) {
-    quitGame();
-    // Set a return value to show a confirmation dialog (required by some browsers)
+    // Show a confirmation dialog (this is required by some browsers)
     event.returnValue = '';
-});// Function to navigate between pages
-function navigate(page) {
-    window.location.href = page;
-}
-
-// Function to show a Rickroll video before leaving the page
-function quitGame() {
-    // Open Rickroll video in a new tab
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-    // Optionally, you can navigate to a different page or show a confirmation dialog
-}
-
-// Add event listener to trigger quitGame on page unload
-window.addEventListener('beforeunload', function(event) {
+    // Open Rickroll video in a new tab (attempt to trigger quitGame)
     quitGame();
-    // Set a return value to show a confirmation dialog (required by some browsers)
-    event.returnValue = '';
 });
