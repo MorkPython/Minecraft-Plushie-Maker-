@@ -80,6 +80,36 @@ body {
     background-color: #ff4c4c; /* Red color for "Quit Game" button */
 }
 
+.options-gui {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 20px;
+    z-index: 1000;
+    text-align: left;
+    width: 300px;
+}
+
+.options-gui.active {
+    display: block;
+}
+
+.close-btn {
+    text-align: right;
+}
+
+.close-btn button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #000;
+}
+
 .Titles {
     font-size: 2em;
 }
@@ -107,6 +137,11 @@ body {
         width: 90%;
         max-width: 400px;
     }
+
+    .options-gui {
+        width: 80%;
+        padding: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -121,5 +156,9 @@ body {
     .menu-container {
         width: 95%;
         max-width: 350px;
+    }
+
+    .options-gui {
+        width: 90%;
     }
 }
