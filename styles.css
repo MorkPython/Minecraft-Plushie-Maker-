@@ -1,110 +1,55 @@
 body {
-    font-family: 'Monocraft', Arial, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
+    font-family: 'Monocraft', sans-serif;
+    background: url('minecraft_background.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100vh;
-    justify-content: center;
-}
-
-.buttons {
+    color: white;
     text-align: center;
-    a:hover {
-    background: #555;
-        width: 150px
-        height: 50px
-}
 }
 
-header h1 {
-    font-family: 'Monocraft', Arial, sans-serif;
-    font-size: 3em;
-    margin: 0;
-}
-
-header h2 {
-    font-family: 'Monocraft', Arial, sans-serif;
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: yellow;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-nav ul li {
-    margin: 10px 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-size: 2em;
-    color: #fff;
-    background: #444;
-    padding: 10px 20px;
-    border-radius: 10px;
-    display: inline-block;
-    transition: background 0.3s;
-}
-
-nav ul li a:hover {
-    background: #555;
-}
-
-.options {
-    margin-top: 20px;
-}
-
-.options ul {
-    list-style: none;
-    padding: 0;
-}
-
-.options ul li {
-    margin: 10px 0;
-}
-
-.options ul li a {
-    text-decoration: none;
-    font-size: 1.5em;
-    color: #fff;
-    background: #444;
-    padding: 10px 20px;
-    border-radius: 10px;
-    display: inline-block;
-    transition: background 0.3s;
-}
-
-.options ul li a:hover {
-    background: #555;
-}
-
-main {
+.menu-container {
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    width: 80%;
-    text-align: center;
+    border-radius: 10px;
 }
 
-section {
+.main-title {
+    font-size: 3em;
     margin-bottom: 20px;
 }
 
-section h2 {
-    font-family: 'Monocraft', Arial, sans-serif;
+.menu-button {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 1.5em;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.Titles, .Subtitles, .Main {
+.menu-button:hover {
+    background-color: #777;
+}
+
+.Titles {
+    font-size: 2em;
+}
+
+.Subtitles {
+    font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-.Main p {
-    margin-bottom: 10px;
+.Main {
+    font-size: 1.2em;
 }
