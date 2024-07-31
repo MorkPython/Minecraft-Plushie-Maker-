@@ -1,54 +1,48 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    let secretCode = 'Ugugula';
-    let userInput = '';
+document.addEventListener('DOMContentLoaded', () => {
+    let secretCode = '';
+    const easterEggText = 'Welcome to the underworld. have fun here bro :P';
+    const secretMessage = document.createElement('div');
+    secretMessage.className = 'secret-message';
+    secretMessage.textContent = easterEggText;
 
-    // Function to handle secret code detection
-    function checkSecretCode(input) {
-        if (input === secretCode) {
-            document.querySelector('.menu-container').classList.add('red-bg');
-            let secretMessage = document.createElement('div');
-            secretMessage.className = 'secret-message';
-            secretMessage.innerText = 'Welcome to the underworld. Have fun here bro :P';
-            document.body.appendChild(secretMessage);
-        }
+    document.body.appendChild(secretMessage);
+
+    function showOptions() {
+        document.querySelector('.options-gui').classList.add('active');
     }
 
-    // Handle key presses for the secret code
-    document.addEventListener('keydown', (e) => {
-        userInput += e.key;
-        if (userInput.length > secretCode.length) {
-            userInput = userInput.slice(-secretCode.length);
-        }
-        checkSecretCode(userInput);
-    });
-
-    // Show options GUI
-    window.showOptions = function() {
-        document.getElementById('skin-tricks-menu').classList.add('active');
+    function closeOptions() {
+        document.querySelector('.options-gui').classList.remove('active');
     }
 
-    // Hide options GUI
-    window.closeOptions = function() {
-        document.getElementById('skin-tricks-menu').classList.remove('active');
+    function quitGame() {
+        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Rickroll URL
     }
 
-    // Handle Quit Game button click
-    window.quitGame = function() {
-        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Rickroll link
-    }
-
-    // Toggle Dark Mode
-    window.toggleDarkMode = function() {
-        document.body.classList.toggle('dark-mode');
-    }
-
-    // Adjust Brightness
-    window.adjustBrightness = function(value) {
+    function adjustBrightness(value) {
         document.body.style.filter = `brightness(${value}%)`;
     }
 
-    // Navigation function
-    window.navigate = function(page) {
-        window.location.href = page;
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
     }
+
+    document.addEventListener('keydown', (event) => {
+        secretCode += event.key;
+        
+        if (secretCode.includes('ugugula')) {
+            document.querySelector('.menu-container').classList.add('red-bg');
+            secretCode = ''; // Reset secret code after triggering
+        } else if (secretCode.includes('einsteinpig')) {
+            document.querySelector('.menu-container').classList.remove('red-bg');
+            secretMessage.style.display = 'none'; // Hide secret message
+            secretCode = ''; // Reset secret code after triggering
+        }
+    });
+
+    window.showOptions = showOptions;
+    window.closeOptions = closeOptions;
+    window.quitGame = quitGame;
+    window.adjustBrightness = adjustBrightness;
+    window.toggleDarkMode = toggleDarkMode;
 });
