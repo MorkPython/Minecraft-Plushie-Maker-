@@ -1,6 +1,6 @@
 body {
     font-family: 'Monocraft', sans-serif;
-    background: url('background.jpg') no-repeat center center fixed; /* Updated background image */
+    background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -114,7 +114,19 @@ body {
     color: #000;
 }
 
-/* Secret Message */
+.Titles {
+    font-size: 2em;
+}
+
+.Subtitles {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.Main {
+    font-size: 1.2em;
+}
+
 .secret-message {
     position: fixed;
     top: 20px;
@@ -167,4 +179,3 @@ body {
         width: 90%;
     }
 }
-
