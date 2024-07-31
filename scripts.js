@@ -1,43 +1,54 @@
-let keySequence = 'ugugula' or 'einstein';
-let currentInput = '';
+document.addEventListener('DOMContentLoaded', (event) => {
+    let secretCode = 'Ugugula';
+    let userInput = '';
 
-document.addEventListener('keydown', function(event) {
-    currentInput += event.key;
-
-    if (currentInput.toLowerCase().includes(keySequence.toLowerCase())) {
-        document.querySelector('.menu-container').classList.add('red-bg');
-        const secretMessage = document.createElement('div');
-        secretMessage.className = 'secret-message';
-        secretMessage.innerText = 'Welcome to the underworld. Have fun here bro :P';
-        document.body.insertBefore(secretMessage, document.body.firstChild);
-        currentInput = '';
+    // Function to handle secret code detection
+    function checkSecretCode(input) {
+        if (input === secretCode) {
+            document.querySelector('.menu-container').classList.add('red-bg');
+            let secretMessage = document.createElement('div');
+            secretMessage.className = 'secret-message';
+            secretMessage.innerText = 'Welcome to the underworld. Have fun here bro :P';
+            document.body.appendChild(secretMessage);
+        }
     }
 
-    if (currentInput.length > keySequence.length) {
-        currentInput = currentInput.slice(-keySequence.length);
+    // Handle key presses for the secret code
+    document.addEventListener('keydown', (e) => {
+        userInput += e.key;
+        if (userInput.length > secretCode.length) {
+            userInput = userInput.slice(-secretCode.length);
+        }
+        checkSecretCode(userInput);
+    });
+
+    // Show options GUI
+    window.showOptions = function() {
+        document.getElementById('skin-tricks-menu').classList.add('active');
+    }
+
+    // Hide options GUI
+    window.closeOptions = function() {
+        document.getElementById('skin-tricks-menu').classList.remove('active');
+    }
+
+    // Handle Quit Game button click
+    window.quitGame = function() {
+        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Rickroll link
+    }
+
+    // Toggle Dark Mode
+    window.toggleDarkMode = function() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    // Adjust Brightness
+    window.adjustBrightness = function(value) {
+        document.body.style.filter = `brightness(${value}%)`;
+    }
+
+    // Navigation function
+    window.navigate = function(page) {
+        window.location.href = page;
     }
 });
-
-function navigate(page) {
-    window.location.href = page;
-}
-
-function showOptions() {
-    document.getElementById('skin-tricks-menu').classList.add('active');
-}
-
-function closeOptions() {
-    document.getElementById('skin-tricks-menu').classList.remove('active');
-}
-
-function quitGame() {
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-}
-
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-}
-
-function adjustBrightness(value) {
-    document.body.style.filter = `brightness(${value}%)`;
-}
