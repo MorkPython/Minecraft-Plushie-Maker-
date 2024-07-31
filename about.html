@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <div class="menu-container">
-        <button onclick="navigate('index.html')">Back to Main Menu</button>
         <div class="main-title">About Us</div>
-        <p>Welcome to the Minecraft Plushie Maker! Create your own custom Minecraft plushies.</p>
+        <div class="main-buttons">
+            <button class="menu-button" onclick="navigate('Create.html')">Create</button>
+            <button class="menu-button" onclick="navigate('about.html')">About</button>
+            <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
+        </div>
+        <div class="footer-buttons">
+            <button class="footer-button" onclick="showOptions()">Options</button>
+            <button class="footer-button quit-button" onclick="quitGame()">Quit Game</button>
+        </div>
+        <p>My name is Mork, and i made this project with @ThomashKelly. Monocraft font by *i forgot the name ;~;*</p>
     </div>
-    <script src="scripts.js"></script>
 </body>
 </html>
