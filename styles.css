@@ -36,6 +36,7 @@ body {
 .main-buttons {
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center items horizontally */
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -59,9 +60,9 @@ body {
 
 .footer-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the footer buttons horizontally */
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 20px; /* Add some space between footer buttons and other content */
 }
 
 .footer-button {
@@ -78,10 +79,6 @@ body {
 
 .footer-button:hover {
     background-color: #666;
-}
-
-.quit-button {
-    background-color: #444;
 }
 
 .quit-button:hover {
@@ -184,3 +181,4 @@ body {
         width: 90%;
     }
 }
+
