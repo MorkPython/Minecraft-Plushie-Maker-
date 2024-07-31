@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MC-Plush</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        @font-face {
-            font-family: 'Monocraft';
-            src: url('Monocraft.ttf') format('truetype');
-        }
-    </style>
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <div class="menu-container">
         <div class="main-title">Minecraft Plushie Maker</div>
         <div class="main-buttons">
-            <button class="menu-button" onclick="navigate('Create.html')">Create</button>
+            <button class="menu-button" onclick="navigate('create.html')">Create</button>
             <button class="menu-button" onclick="navigate('about.html')">About</button>
             <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
         </div>
@@ -26,20 +21,21 @@
         </div>
     </div>
 
-    <div id="skin-tricks-menu" class="options-gui">
+    <!-- Options GUI -->
+    <div class="options-gui">
         <div class="close-btn">
-            <button onclick="closeOptions()">X</button>
+            <button onclick="hideOptions()">X</button>
         </div>
-        <h2>Skin Tricks</h2>
-        <!-- Options content here -->
-        <label for="dark-mode">Dark Mode:</label>
-        <input type="checkbox" id="dark-mode" onclick="toggleDarkMode()">
+        <h2>Options</h2>
+        <label>
+            <input type="checkbox" id="dark-mode-toggle"> Dark Mode
+        </label>
         <br>
-        <label for="brightness">Brightness:</label>
-        <input type="range" id="brightness" min="0" max="100" value="100" onchange="adjustBrightness(this.value)">
+        <label>
+            Brightness:
+            <input type="range" id="brightness-slider" min="0" max="100" value="50">
+        </label>
+        <!-- Add more options as needed -->
     </div>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
-
