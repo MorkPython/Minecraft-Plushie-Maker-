@@ -16,6 +16,9 @@ body {
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
 }
 
 .main-title {
@@ -23,9 +26,14 @@ body {
     margin-bottom: 20px;
 }
 
+.menu-buttons {
+    margin-bottom: 50px; /* Space for footer buttons */
+}
+
 .menu-button {
     display: block;
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     margin: 10px auto;
     padding: 15px;
     font-size: 1.5em;
@@ -41,6 +49,37 @@ body {
     background-color: #777;
 }
 
+.footer-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-button:hover {
+    background-color: #666;
+}
+
+.quit-button:hover {
+    background-color: #ff4c4c; /* Red color for "Quit Game" button */
+}
+
 .Titles {
     font-size: 2em;
 }
@@ -52,4 +91,35 @@ body {
 
 .Main {
     font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5em;
+    }
+
+    .menu-button, .footer-button {
+        font-size: 1.2em;
+    }
+
+    .menu-container {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2em;
+    }
+
+    .menu-button, .footer-button {
+        font-size: 1em;
+    }
+
+    .menu-container {
+        width: 95%;
+        max-width: 350px;
+    }
 }
