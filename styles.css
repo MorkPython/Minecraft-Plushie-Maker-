@@ -61,6 +61,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .footer-button {
@@ -77,6 +78,10 @@ body {
 
 .footer-button:hover {
     background-color: #666;
+}
+
+.quit-button {
+    background-color: #444;
 }
 
 .quit-button:hover {
