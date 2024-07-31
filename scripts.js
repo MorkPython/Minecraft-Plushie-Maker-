@@ -68,6 +68,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     updateStep();
+    function quitGame() {
+        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    }
 });
 
 function navigate(page) {
