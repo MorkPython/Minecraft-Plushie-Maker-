@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create</title>
+    <title>Create - Minecraft Plushie Maker</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'Monocraft';
+            src: url('Monocraft.ttf') format('truetype');
+        }
+    </style>
 </head>
 <body>
     <div class="menu-container">
-        <button onclick="navigate('index.html')">Back to Main Menu</button>
-        <div class="main-title">Create Plushie</div>
-        <!-- Create content -->
-        <button onclick="navigate('previous-step.html')">Previous Step</button>
-        <button onclick="navigate('next-step.html')">Next Step</button>
+        <div class="main-title">Minecraft Plushie Maker</div>
+        <button class="menu-button" onclick="navigate('index.html')">Main Menu</button>
+        <button class="menu-button" onclick="navigate('skin-tricks.html')">Go to Skin Tricks</button>
     </div>
     <script src="scripts.js"></script>
 </body>
