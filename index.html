@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC-Plush - Main Menu</title>
+    <title>MC-Plush</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
@@ -15,24 +15,28 @@
 <body>
     <div class="menu-container">
         <div class="main-title">Minecraft Plushie Maker</div>
-        <div class="menu-buttons">
+        <div class="main-buttons">
             <button class="menu-button" onclick="navigate('create.html')">Create</button>
             <button class="menu-button" onclick="navigate('about.html')">About</button>
             <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
         </div>
         <div class="footer-buttons">
-            <button class="footer-button" onclick="showOptions()">Options...</button>
+            <button class="footer-button" onclick="showOptions()">Options</button>
             <button class="footer-button quit-button" onclick="quitGame()">Quit Game</button>
         </div>
     </div>
 
-    <!-- Skin Tricks Menu -->
     <div id="skin-tricks-menu" class="options-gui">
         <div class="close-btn">
-            <button onclick="closeOptions()">×</button>
+            <button onclick="closeOptions()">X</button>
         </div>
         <h2>Skin Tricks</h2>
-        <!-- Add content here for Skin Tricks -->
+        <!-- Options content here -->
+        <label for="dark-mode">Dark Mode:</label>
+        <input type="checkbox" id="dark-mode" onclick="toggleDarkMode()">
+        <br>
+        <label for="brightness">Brightness:</label>
+        <input type="range" id="brightness" min="0" max="100" value="100" onchange="adjustBrightness(this.value)">
     </div>
 
     <script src="scripts.js"></script>
