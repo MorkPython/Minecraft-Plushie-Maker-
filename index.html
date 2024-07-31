@@ -3,276 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkinTricksMC</title>
+    <title>MC-Plush</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
             font-family: 'Monocraft';
             src: url('Monocraft.ttf') format('truetype');
         }
-
-        body {
-            font-family: 'Monocraft', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f0f0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .header {
-            text-align: center;
-            padding: 20px;
-        }
-
-        nav ul, .options ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        nav ul li, .options ul li {
-            margin: 10px 0;
-        }
-
-        nav ul li a, .options ul li a, button {
-            text-decoration: none;
-            color: #000;
-            padding: 10px 20px;
-            background-color: #ddd;
-            border: 1px solid #aaa;
-            border-radius: 5px;
-            transition: transform 0.3s, background-color 0.3s, color 0.3s;
-            display: inline-block;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover, .options ul li a:hover, button:hover {
-            transform: scale(1.1);
-            background-color: #ccc;
-        }
-
-        .options ul li a:hover::before {
-            content: '⚙️';
-            display: inline-block;
-            margin-right: 5px;
-            animation: spin 1s linear infinite;
-        }
-
-        .quit {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .quit:hover {
-            background-color: #ff4c4c;
-            color: #fff;
-        }
-
-        main {
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .Titles, .Subtitles {
-            text-align: center;
-        }
-
-        .Main {
-            margin: 20px 0;
-        }
-
-        .Main h3 {
-            font-size: 1.2em;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        .step-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .options-gui {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border: 2px solid #000;
-            padding: 20px;
-            z-index: 1000;
-            text-align: left;
-            width: 300px;
-        }
-
-        .options-gui.active {
-            display: block;
-        }
-
-        .options-gui .close-btn {
-            display: block;
-            text-align: right;
-        }
-
-        .options-gui .close-btn button {
-            background: none;
-            border: none;
-            font-size: 1.2em;
-            cursor: pointer;
-        }
-
-        .dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .slider-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        .slider {
-            width: 70%;
-        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>SKIN TRICKS</h1>
-        <h2>Also try Limbo!</h2>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="TrickMenu.html" onclick="showPage('main')">Trick Menu</a></li>
-            <li><a href="PlushSteps.html" onclick="showPage('create')">Create</a></li>
-            <li><a href="About-Us.html" onclick="showPage('about')">About</a></li>
-            <li><a href="Contact-Us.html" onclick="showPage('contact')">Contact Us</a></li>
-        </ul>
-    </nav>
-    <div class="options">
-        <ul>
-            <li><a href="#" onclick="showOptions()">Options...</a></li>
-            <li><a href="#" class="quit" onclick="quitGame()">Quit Game</a></li>
-        </ul>
-    </div>
-    <main>
-        <section id="main" class="page active">
-            <h2>Welcome to Minecraft Plushie Maker</h2>
-            <p>Press Start to begin creating your plushie.</p>
-            <button onclick="showPage('create')">Start</button>
-        </section>
-        <section id="create" class="page">
-            <h2>Create</h2>
-            <h1>Turn any Minecraft skin into a plushie version!</h1>
-            <div class="Subtitles">
-                <h1>Turn any Minecraft skin into a plushie version!</h1>
-            </div>
-            <div class="Main">
-                <p>Follow these 9 steps to make your skin of choice into a plushie just like the image below</p>
-                <h3>Step <span id="step">1</span> out of 9</h3>
-                <div class="step-buttons">
-                    <button onclick="prevStep()">Previous Step</button>
-                    <button onclick="nextStep()">Next Step</button>
-                </div>
-            </div>
-        </section>
-        <section id="about" class="page">
-            <h2>About</h2>
-            <p>Welcome to the Minecraft Plushie Maker! Create your own custom Minecraft plushies.</p>
-        </section>
-        <section id="contact" class="page">
-            <h2>Contact</h2>
-            <p>If you have any questions, feel free to <a href="mailto:support@minecraftplushiemaker.com">contact us</a>.</p>
-        </section>
-    </main>
-
-    <div id="options-gui" class="options-gui">
-        <div class="close-btn">
-            <button onclick="hideOptions()">X</button>
-        </div>
-        <h2>Options</h2>
-        <div>
-            <label>
-                <input type="checkbox" id="dark-mode-toggle" onclick="toggleDarkMode()"> Dark Mode
-            </label>
-        </div>
-        <div class="slider-container">
-            <label for="brightness-slider">Brightness:</label>
-            <input type="range" id="brightness-slider" class="slider" min="0.5" max="1.5" step="0.1" value="1" oninput="adjustBrightness(this.value)">
-        </div>
-        <!-- Add more options as needed -->
+    <div class="menu-container">
+        <div class="main-title">Minecraft Plushie Maker</div>
+        <button class="menu-button" onclick="navigate('create.html')">Create</button>
+        <button class="menu-button" onclick="navigate('about.html')">About</button>
+        <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
     </div>
 
-    <script>
-        let currentStep = 1;
+    <div class="content">
+        <div class="Titles">
+            <h1>MC-Plush</h1>
+        </div>
+        <div class="Subtitles">
+            <h1>Turn any minecraft skin into a plushie version!</h1>
+        </div>
+        <div class="Main">
+            <p>Follow these 9 steps to make your skin of choice into a plushie just like the image below</p>
+            <h3>Step $step out of 9</h3>
+        </div>
+    </div>
 
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function nextStep() {
-            if (currentStep < 9) {
-                currentStep++;
-                document.getElementById('step').innerText = currentStep;
-            } else {
-                alert("You have completed all the steps!");
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                currentStep--;
-                document.getElementById('step').innerText = currentStep;
-            } else {
-                alert("This is the first step.");
-            }
-        }
-
-        function showOptions() {
-            document.getElementById('options-gui').classList.add('active');
-        }
-
-        function hideOptions() {
-            document.getElementById('options-gui').classList.remove('active');
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-
-        function adjustBrightness(value) {
-            document.body.style.filter = `brightness(${value})`;
-        }
-
-        function quitGame() {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
