@@ -1,48 +1,61 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let secretCode = '';
-    const easterEggText = 'Welcome to the underworld. have fun here bro :P';
-    const secretMessage = document.createElement('div');
-    secretMessage.className = 'secret-message';
-    secretMessage.textContent = easterEggText;
+// Global variables to track the secret code sequence
+const secretCode = "ugugula";
+const secretCodeReverse = "einsteinpig";
+let inputSequence = "";
+let easterEggActivated = false;
 
+// Function to handle secret code input
+function handleInput(event) {
+    inputSequence += event.key.toLowerCase();
+
+    if (inputSequence.includes(secretCode)) {
+        activateEasterEgg();
+        inputSequence = ""; // Reset input sequence
+    } else if (inputSequence.includes(secretCodeReverse)) {
+        deactivateEasterEgg();
+        inputSequence = ""; // Reset input sequence
+    }
+}
+
+// Function to activate the easter egg
+function activateEasterEgg() {
+    document.querySelector(".menu-container").classList.add("red-bg");
+    const secretMessage = document.createElement("div");
+    secretMessage.className = "secret-message";
+    secretMessage.textContent = "Welcome to the underworld. have fun here bro :P";
     document.body.appendChild(secretMessage);
+    easterEggActivated = true;
+}
 
-    function showOptions() {
-        document.querySelector('.options-gui').classList.add('active');
+// Function to deactivate the easter egg
+function deactivateEasterEgg() {
+    document.querySelector(".menu-container").classList.remove("red-bg");
+    const secretMessage = document.querySelector(".secret-message");
+    if (secretMessage) {
+        document.body.removeChild(secretMessage);
     }
+    easterEggActivated = false;
+}
 
-    function closeOptions() {
-        document.querySelector('.options-gui').classList.remove('active');
-    }
+// Event listener for keyboard input
+document.addEventListener("keydown", handleInput);
 
-    function quitGame() {
-        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Rickroll URL
-    }
+// Function to navigate to a new page
+function navigate(page) {
+    window.location.href = page;
+}
 
-    function adjustBrightness(value) {
-        document.body.style.filter = `brightness(${value}%)`;
-    }
+// Function to show the options GUI
+function showOptions() {
+    document.querySelector(".options-gui").classList.add("active");
+}
 
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
+// Function to hide the options GUI
+function hideOptions() {
+    document.querySelector(".options-gui").classList.remove("active");
+}
 
-    document.addEventListener('keydown', (event) => {
-        secretCode += event.key;
-        
-        if (secretCode.includes('ugugula')) {
-            document.querySelector('.menu-container').classList.add('red-bg');
-            secretCode = ''; // Reset secret code after triggering
-        } else if (secretCode.includes('einsteinpig')) {
-            document.querySelector('.menu-container').classList.remove('red-bg');
-            secretMessage.style.display = 'none'; // Hide secret message
-            secretCode = ''; // Reset secret code after triggering
-        }
-    });
-
-    window.showOptions = showOptions;
-    window.closeOptions = closeOptions;
-    window.quitGame = quitGame;
-    window.adjustBrightness = adjustBrightness;
-    window.toggleDarkMode = toggleDarkMode;
-});
+// Function to quit the game (redirects to a rickroll)
+function quitGame() {
+    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+}
