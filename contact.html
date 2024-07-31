@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <div class="menu-container">
-        <button onclick="navigate('index.html')">Back to Main Menu</button>
         <div class="main-title">Contact Us</div>
-        <p>If you have any questions, feel free to <a href="mailto:support@minecraftplushiemaker.com">contact us</a>.</p>
+        <div class="main-buttons">
+            <button class="menu-button" onclick="navigate('create.html')">Create</button>
+            <button class="menu-button" onclick="navigate('about.html')">About</button>
+            <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
+        </div>
+        <div class="footer-buttons">
+            <button class="footer-button" onclick="showOptions()">Options</button>
+            <button class="footer-button quit-button" onclick="quitGame()">Quit Game</button>
+        </div>
+        <p>If you have any questions, feel free to <a href="157231@ishweb.nl">contact us</a>.</p>
     </div>
-    <script src="scripts.js"></script>
 </body>
 </html>
