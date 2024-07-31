@@ -1,6 +1,6 @@
 body {
     font-family: 'Monocraft', sans-serif;
-    background: url('minecraft_background.jpg') no-repeat center center fixed;
+    background: url('background.jpg') no-repeat center center fixed; /* Updated background image */
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -19,6 +19,7 @@ body {
     width: 100%;
     max-width: 600px;
     position: relative;
+    text-align: center; /* Ensure text is centered */
 }
 
 .main-title {
@@ -162,3 +163,4 @@ body {
         width: 90%;
     }
 }
+
