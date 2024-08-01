@@ -86,6 +86,14 @@ document.addEventListener('DOMContentLoaded', function () {
         redirectToRickroll();
     }
 
+    // Add event listener for the quit button
+    document.getElementById('quit-game')?.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (confirm("Are you sure you want to quit the game?")) {
+            quitGame();
+        }
+    });
+
     // Add event listener to trigger redirect on page visibility change
     document.addEventListener("visibilitychange", function() {
         if (document.visibilityState === "hidden") {
@@ -95,10 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add event listener to trigger redirect on page unload
     window.addEventListener('beforeunload', function(event) {
-        // Prevent default behavior and redirect to Rickroll
-        event.preventDefault();
-        redirectToRickroll();
-        // Most browsers will show a generic message
-        return ''; // Return an empty string to trigger the default behavior
+        // Show a confirmation dialog (this is required by some browsers)
+        event.returnValue = 'Are you sure you want to leave?';
     });
 });
