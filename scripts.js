@@ -1,36 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
     let step = 1;
     const maxSteps = 9;
-    const stepElement = document.getElementById('step');
-    const nextButton = document.getElementById('next-step');
-    const prevButton = document.getElementById('prev-step');
+
+    // Elements and Variables
     const optionsGui = document.querySelector('.options-gui');
     const secretMessage = document.createElement('div');
     secretMessage.classList.add('secret-message');
     document.body.appendChild(secretMessage);
 
     function updateStep() {
-        if (stepElement) {
-            stepElement.innerText = `Step ${step} out of ${maxSteps}`;
+        console.log(`Current Step: ${step}`);
+    }
+
+    // Next Step Function
+    function nextStep() {
+        if (step < maxSteps) {
+            step++;
+            updateStep();
         }
     }
 
-    if (nextButton) {
-        nextButton.addEventListener('click', () => {
-            if (step < maxSteps) {
-                step++;
-                updateStep();
-            }
-        });
-    }
-
-    if (prevButton) {
-        prevButton.addEventListener('click', () => {
-            if (step > 1) {
-                step--;
-                updateStep();
-            }
-        });
+    // Previous Step Function
+    function previousStep() {
+        if (step > 1) {
+            step--;
+            updateStep();
+        }
     }
 
     document.getElementById('open-options')?.addEventListener('click', () => {
