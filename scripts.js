@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let secretCode = '';
     const secretPhrase = 'ugugula';
     const resetPhrase = 'einsteinpig';
+    const cheesePhrase = 'cheese';
+    const cheeseClickerUrl = 'https://chees.click';
 
     document.addEventListener('keydown', (event) => {
         secretCode += event.key.toLowerCase();
@@ -61,6 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (secretCode.endsWith(resetPhrase)) {
             document.body.classList.remove('red-bg');
             secretMessage.style.display = 'none';
+        }
+
+        if (secretCode.endsWith(cheesePhrase)) {
+            window.location.href = cheeseClickerUrl;
         }
     });
 
@@ -102,3 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
         event.returnValue = 'Are you sure you want to leave?';
     });
 });
+
+function toggleOptions() {
+    document.querySelector('.options-gui').classList.toggle('active');
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+function adjustBrightness() {
+    const brightness = document.getElementById('brightnessControl').value;
+    document.body.style.filter = `brightness(${brightness})`;
+}
