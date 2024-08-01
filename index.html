@@ -10,21 +10,21 @@
 <body>
     <div class="menu-container">
         <div class="main-title">Minecraft Plushie Maker</div>
+        <div id="step">Step 1 out of 9</div>
         <div class="main-buttons">
-            <button class="menu-button" onclick="navigate('create.html')">Create</button>
-            <button class="menu-button" onclick="navigate('about.html')">About</button>
-            <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
+            <button id="next-step" class="menu-button">Next Step</button>
+            <button id="prev-step" class="menu-button">Previous Step</button>
         </div>
         <div class="footer-buttons">
-            <button class="footer-button" onclick="showOptions()">Options</button>
+            <button class="footer-button" id="open-options">Options</button>
             <button class="footer-button quit-button" onclick="quitGame()">Quit Game</button>
         </div>
     </div>
 
     <!-- Options GUI -->
-    <div class="options-gui">
+    <div class="options-gui" style="display: none;">
         <div class="close-btn">
-            <button onclick="hideOptions()">X</button>
+            <button id="close-options">X</button>
         </div>
         <h2>Options</h2>
         <label>
@@ -37,5 +37,8 @@
         </label>
         <!-- Add more options as needed -->
     </div>
+
+    <!-- Secret Message Display -->
+    <div class="secret-message" style="display: none;"></div>
 </body>
 </html>
