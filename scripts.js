@@ -78,13 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Function to show a Rickroll video
-    function redirectToRickroll() {
+    function quitGame() {
         window.location.href = 'www.youtube.com/watch?v=2qBlE2-WL60';
     }
 
     // Function for quit button to also redirect
     window.quitGame = function() {
-        redirectToRickroll();
+        quitGame();
     }
 
     // Add event listener for the quit button
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add event listener to trigger redirect on page visibility change
     document.addEventListener("visibilitychange", function() {
         if (document.visibilityState === "hidden") {
-            redirectToRickroll();
+            quitGame();
         }
     });
 
