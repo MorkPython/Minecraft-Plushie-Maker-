@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to show a Rickroll video
     function redirectToRickroll() {
-        window.location.href = 'https://www.youtube.com/watch?v=2qBlE2-WL60';
+        window.location.href = 'www.youtube.com/watch?v=2qBlE2-WL60';
     }
 
     // Function for quit button to also redirect
