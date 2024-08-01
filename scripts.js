@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(secretMessage);
 
     function updateStep() {
-        stepElement.innerText = `Step ${step} out of ${maxSteps}`;
+        if (stepElement) {
+            stepElement.innerText = `Step ${step} out of ${maxSteps}`;
+        }
     }
 
     if (nextButton) {
@@ -31,15 +33,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    document.getElementById('open-options').addEventListener('click', () => {
+    document.getElementById('open-options')?.addEventListener('click', () => {
         optionsGui.classList.add('active');
     });
 
-    document.getElementById('close-options').addEventListener('click', () => {
+    document.getElementById('close-options')?.addEventListener('click', () => {
         optionsGui.classList.remove('active');
     });
 
-    document.getElementById('dark-mode-toggle').addEventListener('change', (event) => {
+    document.getElementById('dark-mode-toggle')?.addEventListener('change', (event) => {
         if (event.target.checked) {
             document.body.classList.add('dark-mode');
         } else {
@@ -74,17 +76,29 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = page;
     }
 
-    // Function to show a Rickroll video before leaving the page
-    function quitGame() {
+    // Function to show a Rickroll video
+    function redirectToRickroll() {
         window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     }
 
-    // Add event listener to trigger quitGame on page unload
+    // Function for quit button to also redirect
+    window.quitGame = function() {
+        redirectToRickroll();
+    }
+
+    // Add event listener to trigger redirect on page visibility change
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState === "hidden") {
+            redirectToRickroll();
+        }
+    });
+
+    // Add event listener to trigger redirect on page unload
     window.addEventListener('beforeunload', function(event) {
-        // Show a confirmation dialog (this is required by some browsers)
-        event.returnValue = '';
-        // Open Rickroll video in a new tab (attempt to trigger quitGame)
-        quitGame();
+        // Prevent default behavior and redirect to Rickroll
+        event.preventDefault();
+        redirectToRickroll();
+        // Most browsers will show a generic message
+        return ''; // Return an empty string to trigger the default behavior
     });
 });
-
