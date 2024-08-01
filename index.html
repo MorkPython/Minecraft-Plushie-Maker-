@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skin Tricks</title>
+    <title>MC-Plush</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <style>
+        @font-face {
+            font-family: 'Monocraft';
+            src: url('Monocraft.ttf') format('truetype');
+        }
+    </style>
 </head>
 <body>
     <div class="menu-container">
-        <div class="main-title">Skin Tricks</div>
+        <div class="main-title">Minecraft Plushie Maker</div>
         <div class="main-buttons">
-            <button class="menu-button" onclick="navigate('create.html')">Create</button>
+            <button class="menu-button" onclick="navigate('Create.html')">Create</button>
             <button class="menu-button" onclick="navigate('about.html')">About</button>
             <button class="menu-button" onclick="navigate('contact.html')">Contact Us</button>
         </div>
         <div class="footer-buttons">
-            <button class="footer-button" id="open-options">Options</button>
-            <button class="footer-button quit-button" id="quit-game">Quit Game</button>
+            <button class="footer-button" onclick="toggleOptions()">Options</button>
+            <button class="footer-button quit-button" onclick="navigate('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">Quit Game</button>
         </div>
     </div>
 
-    <!-- Options GUI -->
-    <div class="options-gui" style="display: none;">
+    <div class="options-gui">
         <div class="close-btn">
-            <button id="close-options">X</button>
+            <button onclick="toggleOptions()">X</button>
         </div>
         <h2>Options</h2>
         <label>
-            <input type="checkbox" id="dark-mode-toggle"> Dark Mode
+            Dark Mode
+            <input type="checkbox" id="darkModeToggle">
         </label>
         <br>
         <label>
-            Brightness:
-            <input type="range" id="brightness-slider" min="0" max="100" value="50">
+            Brightness
+            <input type="range" id="brightnessRange" min="0.5" max="1.5" step="0.1" value="1">
         </label>
-        <!-- Add more options as needed -->
     </div>
 
-    <!-- Secret Message Display -->
-    <div class="secret-message" style="display: none;"></div>
+    <div class="secret-message" id="secretMessage" style="display: none;">Welcome to the underworld. Have fun here bro :P</div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
+
