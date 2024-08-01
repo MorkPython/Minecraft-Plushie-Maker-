@@ -1,3 +1,4 @@
+/* Reset and basic styles */
 body {
     font-family: 'Monocraft', sans-serif;
     background: url('background.jpg') no-repeat center center fixed;
@@ -12,6 +13,7 @@ body {
     text-align: center;
 }
 
+/* Menu container */
 .menu-container {
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
@@ -83,6 +85,7 @@ body {
     background-color: #ff4c4c; /* Red color for "Quit Game" button */
 }
 
+/* Options GUI */
 .options-gui {
     display: none;
     position: fixed;
@@ -114,19 +117,7 @@ body {
     color: #000;
 }
 
-.Titles {
-    font-size: 2em;
-}
-
-.Subtitles {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.Main {
-    font-size: 1.2em;
-}
-
+/* Secret Message */
 .secret-message {
     position: fixed;
     top: 20px;
@@ -178,4 +169,15 @@ body {
     .options-gui {
         width: 90%;
     }
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Brightness Control */
+body.dark-mode {
+    filter: brightness(0.8);
 }
