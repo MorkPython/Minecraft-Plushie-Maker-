@@ -78,37 +78,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Function to show a Rickroll video
-    function quitGame() {
-        window.location.href = 'www.youtube.com/watch?v=2qBlE2-WL60';
-    }
+   function quitGame() {
+    window.open('www.youtube.com/watch?v=2qBlE2-WL60', '_blank').focus();
+}
 
-    // Function for quit button to also redirect
-    window.quitGame = function() {
+// Add event listener to trigger redirect on Ctrl+W
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'w') {
+        event.preventDefault();  // Prevent the default action (navigation or refresh)
         quitGame();
     }
-
-    // Add event listener for the quit button
-    document.getElementById('quit-game')?.addEventListener('click', function(event) {
-        event.preventDefault();
-        if (confirm("Are you sure you want to quit the game?")) {
-            quitGame();
-        }
-    });
-
-    // Add event listener to trigger redirect on page visibility change
-    document.addEventListener("visibilitychange", function() {
-        if (document.visibilityState === "hidden") {
-            quitGame();
-        }
-    });
-
-    // Add event listener to trigger redirect on page unload
-    window.addEventListener('beforeunload', function(event) {
-        // Show a confirmation dialog (this is required by some browsers)
-        event.returnValue = 'Are you sure you want to leave?';
-    });
 });
 
+// Modify the existing 'beforeunload' event listener to also trigger the Rickroll
+window.addEventListener('beforeunload', function(event) {
+    quitGame();  // Trigger Rickroll when the user tries to leave the page
+    event.returnValue = 'Are you sure you want to leave?';  // Show a confirmation dialog
+});
 function toggleOptions() {
     document.querySelector('.options-gui').classList.toggle('active');
 }
