@@ -78,10 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
    document.addEventListener('DOMContentLoaded', function() {
-    // Function to show a Rickroll video
-    function quitGame() {
-        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank').focus();
-    }
+        // Function to show a Rickroll video
+        function quitGame() {
+            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank').focus();
+        }
+    })
 
     // Attach event to Quit Game button
     document.getElementById('quit-game').addEventListener('click', quitGame);
@@ -107,6 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
         event.returnValue = 'Are you sure you want to leave?';  // Show a confirmation dialog
     });
 });
+
+
 function toggleOptions() {
     document.querySelector('.options-gui').classList.toggle('active');
 }
@@ -119,3 +122,4 @@ function adjustBrightness() {
     const brightness = document.getElementById('brightnessControl').value;
     document.body.style.filter = `brightness(${brightness})`;
 }
+
