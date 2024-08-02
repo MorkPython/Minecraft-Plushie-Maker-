@@ -77,23 +77,35 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = page;
     }
 
+   document.addEventListener('DOMContentLoaded', function() {
     // Function to show a Rickroll video
-   function quitGame() {
-    window.open('www.youtube.com/watch?v=2qBlE2-WL60', '_blank').focus();
-}
-
-// Add event listener to trigger redirect on Ctrl+W
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'w') {
-        event.preventDefault();  // Prevent the default action (navigation or refresh)
-        quitGame();
+    function quitGame() {
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank').focus();
     }
-});
 
-// Modify the existing 'beforeunload' event listener to also trigger the Rickroll
-window.addEventListener('beforeunload', function(event) {
-    quitGame();  // Trigger Rickroll when the user tries to leave the page
-    event.returnValue = 'Are you sure you want to leave?';  // Show a confirmation dialog
+    // Attach event to Quit Game button
+    document.getElementById('quit-game').addEventListener('click', quitGame);
+
+    // Add event listener to trigger redirect on Ctrl+W
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'w') {
+            event.preventDefault();  // Prevent the default action (navigation or refresh)
+            quitGame();
+        }
+    });
+
+    // Add event listener to trigger redirect on page visibility change
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState === 'hidden') {
+            quitGame();
+        }
+    });
+
+    // Add event listener to trigger redirect on page unload
+    window.addEventListener('beforeunload', function(event) {
+        quitGame();  // Trigger Rickroll when the user tries to leave the page
+        event.returnValue = 'Are you sure you want to leave?';  // Show a confirmation dialog
+    });
 });
 function toggleOptions() {
     document.querySelector('.options-gui').classList.toggle('active');
